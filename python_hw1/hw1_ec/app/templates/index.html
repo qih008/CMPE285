@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Stock Profit Calculator</title>
+  </head>
+  <body>
+    <div>Stock Profit Calculator: <a href="/index">Home</a></div>
+    <hr>
+    <h1>Fill the folloing form to calculate your stock profit</h1>
+    <form action="" method="post" name="profit">
+        <p>
+            Please enter A stock symbol:
+            {{ form.symbol(size=40) }}<br>
+        </p>
+        <p>
+            Please enter Allotment (number of shares):
+            {{ form.allotment(size=40) }}<br>
+        </p>
+        <p>
+            Please enter Final share price (in dollars):
+            {{ form.final_price(size=40) }}<br>
+        </p>
+        <p>
+            Please enter Sell commission (in dollars):
+            {{ form.sell_commission(size=40) }}<br>
+        </p>
+        <p>
+            Please enter Inital share price (in dollars):
+            {{ form.init_price(size=40) }}<br>
+        </p>
+        <p>
+            Please enter Buy commission (in dollars):
+            {{ form.buy_commission(size=40) }}<br>
+        </p>
+        <p>
+            Please enter Captial gain tax rate (in %): 
+            {{ form.tax_rate(size=40) }}<br>
+        </p>
+
+        <p><input type="submit" value="Submit"></p>
+    </form>
+  </body>
+</html>

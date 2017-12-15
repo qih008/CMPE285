@@ -1,0 +1,5 @@
+Extra Credit:
+I used FLASK framework to implement web UI with pythono language.
+To run my web UI, you need to install flask first, then my app root /hw1_ec, 
+type "python run.py", then you can go to your brower and type "localhost:5000"
+Then the web UI will show up.

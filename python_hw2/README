@@ -1,0 +1,6 @@
+At first, I used yahoo finance api and it worked fine until 11/1/2017, so I have to change to
+ues quandl library, just type "pip install quandl" to install it.
+Also, I used pandas to read a csv file to valid symbol and find stock full name,
+type "pip install pandas" to install it.
+Then to run my code, simply type "python hw2.py"
+hw2_yahoo_finance.py is my solution by using yahoo finance.
