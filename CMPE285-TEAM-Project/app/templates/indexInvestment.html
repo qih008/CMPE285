@@ -1,0 +1,117 @@
+<html>
+ <head>
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+ <script src="https://code.highcharts.com/modules/exporting.js"></script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+ </head>
+ <body>
+    <h1>Your Investment result</h1>
+    <p>{{s1}}</p>
+    <p>{{s2}}</p>
+    <p>{{s3}}</p>
+    <p>{{s4}}</p>
+
+<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<br><br><br>
+<b><hr></b>
+<br><br><br>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+ <script>
+  //var myarray = ;
+  var priceList0 = [136.5, 136.98, 136.95, 136.97, 136.33];
+  var priceList1 = [62.36, 62.27, 62.31, 62.79, 62.32];
+  var priceList2 = [64.50, 64.15, 64.44, 64.54, 65.00];
+  var dateList = ['12-11-2017', '12-12-2017', '12-13-2017', '12-14-2017', '12-15-2017'];
+  var stockList = ['VTI', 'IXUS', 'ILTB'];
+    $(function () {
+    Highcharts.chart('container1', {
+        title: {
+            text: 'Historical Data for individual stocks ',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Quandl Api',
+            x: -20
+        },
+        xAxis: {
+            categories: dateList
+        },
+        yAxis: {
+            title: {
+                text: 'Stock Value'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'VTI',
+            data: priceList0
+        }, {
+            name: 'IXUS',
+            data: priceList1
+        }, {
+            name: 'ILTB',
+            data: priceList2
+        }]
+    });
+        Highcharts.chart('container2', {
+        title: {
+            text: 'Historical Data for Index Portfolio',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Quandl Api',
+            x: -20
+        },
+        xAxis: {
+            categories: dateList
+        },
+        yAxis: {
+            title: {
+                text: 'Index Portfolio Value'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valuePrefix: ' $'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Total Index Portfolio Values',
+            data: portFolioList
+        }]
+    });
+});
+ 
+    
+   
+  </script>
+
+
+});
+
+
+ </body>
+
+ </html>

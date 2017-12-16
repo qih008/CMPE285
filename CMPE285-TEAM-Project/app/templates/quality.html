@@ -1,0 +1,117 @@
+<html>
+ <head>
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+ <script src="https://code.highcharts.com/modules/exporting.js"></script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+ </head>
+ <body>
+    <h1>Your Investment result</h1>
+    <p>{{s1}}</p>
+    <p>{{s2}}</p>
+    <p>{{s3}}</p>
+    <p>{{s4}}</p>
+
+<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<br><br><br>
+<b><hr></b>
+<br><br><br>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+ <script>
+  //var myarray = ;
+  var priceList0 = [179.38, 178.22, 176.96, 178.93, 178.39];
+  var priceList1 = [84.25, 85.04, 85.73, 85.35, 85.20];
+  var priceList2 = [44.63, 44.40, 44.60, 44.62, 44.74];
+  var dateList = ['12-11-2017', '12-12-2017', '12-13-2017', '12-14-2017', '12-15-2017'];
+  var stockList = ['FB', 'MSFT', 'SNE'];
+    $(function () {
+    Highcharts.chart('container1', {
+        title: {
+            text: 'Historical Data for individual stocks ',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Quandl Api',
+            x: -20
+        },
+        xAxis: {
+            categories: dateList
+        },
+        yAxis: {
+            title: {
+                text: 'Stock Value'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'FB',
+            data: priceList0
+        }, {
+            name: 'MSFT',
+            data: priceList1
+        }, {
+            name: 'SNE',
+            data: priceList2
+        }]
+    });
+        Highcharts.chart('container2', {
+        title: {
+            text: 'Historical Data for Quality Portfolio',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Quandl Api',
+            x: -20
+        },
+        xAxis: {
+            categories: dateList
+        },
+        yAxis: {
+            title: {
+                text: 'Quality Portfolio Value'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valuePrefix: ' $'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Total Quality Portfolio Values',
+            data: portFolioList
+        }]
+    });
+});
+ 
+    
+   
+  </script>
+
+
+});
+
+
+ </body>
+
+ </html>
