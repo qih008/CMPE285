@@ -6,6 +6,7 @@ from random import *
 import quandl
 import pandas as pd
 import datetime
+import json
 from datetime import timedelta
 
 quandl.ApiConfig.api_key = "E1yyuR2R1ip6VeYjkfWn"
@@ -21,7 +22,14 @@ def index():
     value_form = valueForm()
 
     if request.method == 'POST':
-        
+
+        time_list = []
+        now = datetime.date.today()
+        for i in range(5):
+          t = now - timedelta(days=(4-i))
+          time_list.append(t.strftime('%m-%d-%Y'))
+
+
         if ethical_form.amount1.data is not None:
             amount = ethical_form.amount1.data
             a1 = "The investment amount is: ${:,}".format(amount)
@@ -36,26 +44,22 @@ def index():
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
 
-            # mydata = quandl.get("WIKI/AAPL", rows=5)
-            # price_list1 = []
-            # time_list = []
-            # now = datetime.date.today()
-
-            # for i in range(5):
-            #   close_price = float(mydata['Close'][i])
-            #   price_list1.append(str(close_price))
-            #   t = now - timedelta(days=(4-i))
-            #   time_list.append(t.strftime('%m-%d-%Y'))
+            mydata = quandl.get("WIKI/AAPL", rows=5)
+            price_list1 = []          
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list1.append(str(close_price))
 
 
-            # mydata = quandl.get("WIKI/ADBE", rows=5)
-            # price_list2 = []
-            # for i in range(5):
-            #   close_price = float(mydata['Close'][i])
-            #   price_list2.append(str(close_price))
+            mydata = quandl.get("WIKI/ADBE", rows=5)
+            price_list2 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list2.append(str(close_price))
 
             #print price_list1, price_list2
-            return render_template('ethical.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
+            #templist = ["12-11-2017", "12-12-2017"]
+            return render_template('ethical.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list, timeList=time_list, list1=price_list1, list2=price_list2)
         elif growth_form.amount2.data is not None:
             amount = growth_form.amount2.data
             a1 = "The investment amount is: ${:,}".format(amount)
