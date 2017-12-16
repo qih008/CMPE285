@@ -21,9 +21,9 @@
  <script>
 
   //var myarray = ;
-  var priceList0 = [168.79, 171.46, 172.00, 171.65, 172.46];
-  var priceList1 = [174.31, 172.54, 176.83, 175.00, 177.51];
-  var priceList2 = [85.71, 86.06, 86.67, 85.96, 85.23];
+  var priceList0 = [328.91, 341.03, 339.03, 337.89, 343.45];
+  var priceList1 = [43.66, 43.33, 43.34, 43.26, 44.56];
+  var priceList2 = [1168.92, 1165.08, 1164.13, 1174.26, 1179.14];
   var portFolioList = {{ portFolioList }};
   var dateList = ['12-11-2017', '12-12-2017', '12-13-2017', '12-14-2017', '12-15-2017'];
 
@@ -62,20 +62,20 @@
         },
 
         series: [{
-            name: 'AAPL',
+            name: 'TSLA',
             data: priceList0
         }, {
-            name: 'ADBE',
+            name: 'INTC',
             data: priceList1
         }, {
-            name: 'NSRGY',
+            name: 'AMZN',
             data: priceList2
         }]
     });
 
         Highcharts.chart('container2', {
         title: {
-            text: 'Historical Data for Ethical Portfolio',
+            text: 'Historical Data for Growth Portfolio',
             x: -20 //center
         },
         subtitle: {
@@ -87,7 +87,7 @@
         },
         yAxis: {
             title: {
-                text: 'Ethical Portfolio Value'
+                text: 'Growth Portfolio Value'
             },
             plotLines: [{
                 value: 0,
@@ -106,7 +106,7 @@
             borderWidth: 0
         },
         series: [{
-            name: 'Total Ethical Portfolio Values',
+            name: 'Total Growth Portfolio Values',
             data: portFolioList
         }]
     });
