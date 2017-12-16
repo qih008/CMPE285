@@ -61,6 +61,7 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
+            return render_template('indexinvestment.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
         elif quality_form.amount4.data is not None:
             amount = quality_form.amount4.data
             a1 = "The investment amount is: ${:,}".format(amount)
@@ -74,6 +75,7 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
+            return render_template('quality.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
         elif value_form.amount5.data is not None:
             amount = value_form.amount5.data
             a1 = "The investment amount is: ${:,}".format(amount)
@@ -87,6 +89,7 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
+            return render_template('value.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
         
 
 
