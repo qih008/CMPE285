@@ -1,37 +1,65 @@
 from flask import render_template, request
 from app import app
-from .forms import profitForm
+from .forms import ethicalForm, growthForm, indexForm, qualityForm, valueForm
+
+import quandl
+import datetime
+import pandas as pd
 
 # index view function suppressed for brevity
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    form = profitForm()
+    ethical_form = ethicalForm()
+    growth_form = growthForm()
+    index_form = indexForm()
+    quality_form = qualityForm()
+    value_form = valueForm()
+
     if request.method == 'POST':
-        #proceeds = form.allotment.data
-        symbol = form.symbol.data
-        allotment = form.allotment.data
-        final_price = form.final_price.data
-        sell_commission = form.sell_commission.data
-        init_price = form.init_price.data
-        buy_commission = form.buy_commission.data
-        tax_rate = form.tax_rate.data
+        
+        if ethical_form.amount1.data is not None:
+            amount = ethical_form.amount1.data
+            a1 = "The investment amount is: ${:,}".format(amount)
+            title1 = "Ethical Investing Method"
+            stock1 = "AAPL 50%"
+            stock2 = "ADBE 30%"
+            stock3 = "NSRGY 20%"
+            return render_template('ethical.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3)
+        elif growth_form.amount2.data is not None:
+            amount = growth_form.amount2.data
+            a1 = "The investment amount is: ${:,}".format(amount)
+            title1 = "Growth Investing Method"
+            stock1 = "TSLA 50%"
+            stock2 = "INTC 25%"
+            stock3 = "AMZN 25%"
+        elif index_form.amount3.data is not None:
+            amount = index_form.amount3.data
+            a1 = "The investment amount is: ${:,}".format(amount)
+            title1 = "Index Investing Method"
+            stock1 = "VTI 33%"
+            stock2 = "IXUS 33%"
+            stock3 = "ILTB 33%"
+        elif quality_form.amount4.data is not None:
+            amount = quality_form.amount4.data
+            a1 = "The investment amount is: ${:,}".format(amount)
+            title1 = "Quality Investing Method"
+            stock1 = "FB 50%"
+            stock2 = "MSFT 20%"
+            stock3 = "SNE 30%"
+        elif value_form.amount5.data is not None:
+            amount = value_form.amount5.data
+            a1 = "The investment amount is: ${:,}".format(amount)
+            title1 = "Value Investing Method"
+            stock1 = "NFLX 80%"
+            stock2 = "TWTR 15%"
+            stock3 = "GOOGL 5%"
+        
 
-        proceeds = allotment * final_price
-        tax = tax_rate / 100.00 * (allotment * (final_price - init_price) - sell_commission - buy_commission)
-        cost = allotment * init_price + sell_commission + buy_commission + tax
-        break_price = (buy_commission + sell_commission) / float(allotment) + init_price
 
-        s1 = "Proceeds: ${:,}".format(proceeds)
-        s2 = "Cost: ${:,}".format(cost)
-        s3 = "Cost details:"
-        s4 = "Total purchasee price: ${:,}".format(allotment * init_price)
-        s5 = "Buy commission: ${:,}".format(buy_commission)
-        s6 = "Sell commission: ${:,}".format(sell_commission)
-        s7 = "Tax on Captial Gain: {:,}%  of ${:,} = {:,}".format(tax_rate, (allotment * (final_price - init_price) - sell_commission - buy_commission), tax)
-        s8 = "Net Profit: ${:,}".format(proceeds - cost)
-        s9 = "Return on Investment: {:.2%}".format((proceeds - cost) / cost)
-        s10 = "To break even, you should have a final share price of: ${:,}".format(break_price)
+        return render_template('result.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3)
+    return render_template('index.html', ethical_form=ethical_form, growth_form=growth_form, index_form=index_form, quality_form=quality_form, value_form=value_form)
 
-        return render_template('result.html', s1=s1, s2=s2, s3=s3, s4=s4, s5=s5, s6=s6, s7=s7, s8=s8, s9=s9, s10=s10)
-    return render_template('index.html', form=form)
+
+
+

@@ -1,42 +1,106 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Stock Profit Calculator</title>
-  </head>
-  <body>
-    <div>Stock Profit Calculator: <a href="/index">Home</a></div>
-    <hr>
-    <h1>Fill the folloing form to calculate your stock profit</h1>
-    <form action="" method="post" name="profit">
-        <p>
-            Please enter A stock symbol:
-            {{ form.symbol(size=40) }}<br>
-        </p>
-        <p>
-            Please enter Allotment (number of shares):
-            {{ form.allotment(size=40) }}<br>
-        </p>
-        <p>
-            Please enter Final share price (in dollars):
-            {{ form.final_price(size=40) }}<br>
-        </p>
-        <p>
-            Please enter Sell commission (in dollars):
-            {{ form.sell_commission(size=40) }}<br>
-        </p>
-        <p>
-            Please enter Inital share price (in dollars):
-            {{ form.init_price(size=40) }}<br>
-        </p>
-        <p>
-            Please enter Buy commission (in dollars):
-            {{ form.buy_commission(size=40) }}<br>
-        </p>
-        <p>
-            Please enter Captial gain tax rate (in %): 
-            {{ form.tax_rate(size=40) }}<br>
-        </p>
+<head>
+	<title>Your Investment Advisor</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-        <p><input type="submit" value="Submit"></p>
-    </form>
-  </body>
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Investment Advisor</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Signup  <i class="fa fa-user-plus"></i></a></li>
+        <li><a href="#about">Login  <i class="fa fa-user"></i></a></li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+
+<div class="container">
+            <div class="row">
+               
+                <div class="col-md-4 col-sm-6">
+                     </br> </br>
+                        <form align="center" method="post" name="ethical">
+        
+                            <h3 align="center">Ethical Investment</h3>
+                                <p align="center">Ethical investing is any investment strategy which seeks to consider both financial return and social good to bring about a social change.</p><br>
+                        <p> {{ ethical_form.amount1 }} </p>
+                        <br>
+                        <input type="submit"  class="btn btn-danger" value="Invest!"/>
+                    
+                  </form>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    </br> </br>
+                    <form align="center" method="post" name="growth">
+                     <h3 align="center">Growth Investment</h3>
+                     <p>Growth investing is a style of investment strategy focused on capital appreciation.</p>
+  
+                      </br> <p> {{ growth_form.amount2 }}  </p> </br>
+                     <input type="submit"  class="btn btn-danger" value="Submit!"/>
+                    </form>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    </br></br>
+                    <form method="post" align="center" name="indexInvesting">
+                    <h3 align="center">Index Investment</h3>
+                    <p>An index fund (also index tracker) is a mutual fund or exchange-traded fund (ETF) designed to follow certain preset rules so that the fund can track a specified basket of underlying investments.</p>
+                    <br>
+                    <p> {{ index_form.amount3 }}  </p>
+                    <br>
+                    <input type="submit" class="btn btn-danger" value="Submit!"/>
+                </form>
+                </div>
+               </div>
+                <div class="row">
+                 <div class="col-md-4 col-sm-6 portfolio-item">
+                    </br></br>
+                   <form method="post" align="center" name="quality">
+                    <h3 align="center">Quality Investment</h3>
+                    <p>Quality investing is an investment strategy based on a set of clearly defined fundamental criteria that seeks to identify companies with outstanding quality characteristics.</p>
+                    <br>
+                    <p> {{ quality_form.amount4 }}  </p>
+                    <br>
+                    <input type="submit" class="btn btn-danger"  value="Submit!"/>
+                 </form>
+                </div>
+
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    </br></br>
+                   <form method="post" align="center" name="value">
+                    <h3 align="center">Value Investment</h3>
+                    <p>Value investing is an investment paradigm which generally involves buying securities that appear underpriced by some form of fundamental analysis.</p>
+                    <br> 
+                    <p> {{ value_form.amount5 }}  </p>
+                    <br>
+                    <input type="submit" class="btn btn-danger" value="Submit!"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+ <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+</body>
 </html>

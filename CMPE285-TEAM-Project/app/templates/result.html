@@ -1,20 +1,44 @@
 <html>
   <head>
-    <title>Stock Profit Calculator</title>
+      <title> {{ title }}</title>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
   </head>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Investment Advisor</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Signup  <i class="fa fa-user-plus"></i></a></li>
+        <li><a href="#about">Login  <i class="fa fa-user"></i></a></li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+
   <body>
-    <div>Stock Profit Calculator: <a href="/index">Home</a></div>
+    <div>{{title}}: <a href="/index">Home</a></div>
     <hr>
-    <h1>Your stock profit result</h1>
+    <h1>Your Investment result</h1>
     <p>{{s1}}</p>
     <p>{{s2}}</p>
     <p>{{s3}}</p>
     <p>{{s4}}</p>
-    <p>{{s5}}</p>
-    <p>{{s6}}</p>
-    <p>{{s7}}</p>
-    <p>{{s8}}</p>
-    <p>{{s9}}</p>
-    <p>{{s10}}</p>
+   
   </body>
 </html>

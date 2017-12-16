@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Stock Portfolio Suggestion Engine</title>
+  </head>
+  <body>
+    <div>Stock Portfolio Suggestion Engine: <a href="/index">Home</a></div>
+    <hr>
+    <h1>Please pick one investment method to invest</h1>
+    <form action="" method="post" name="ethical">
+        <p>
+            Please enter Amount you want to invest to Ethical Investing Method:
+            <br>
+            {{ ethical_form.amount1 (size=40) }}<br>
+        </p>
+        <p><input type="submit" value="Invest"></p>
+    </form>
+    <form action="" method="post" name="growth">
+        <p>
+            Please enter Amount you want to invest to Growth Investing Method:
+            <br>
+            {{ growth_form.amount2 (size=40) }}<br>
+        </p>
+        <p><input type="submit" value="Invest"></p>
+    </form>
+    <form action="" method="post" name="index">
+        <p>
+            Please enter Amount you want to invest to Index Investing Method:
+            <br>
+            {{ index_form.amount3 (size=40) }}<br>
+        </p>
+        <p><input type="submit" value="Invest"></p>
+    </form>
+    <form action="" method="post" name="quality">
+        <p>
+            Please enter Amount you want to invest to Quality Investing Method:
+            <br>
+            {{ quality_form.amount4 (size=40) }}<br>
+        </p>
+        <p><input type="submit" value="Invest"></p>
+    </form>
+    <form action="" method="post" name="value">
+        <p>
+            Please enter Amount you want to invest to Value Investing Method:
+            <br>
+            {{ value_form.amount5 (size=40) }}<br>
+        </p>
+        <p><input type="submit" value="Invest"></p>
+    </form>
+  </body>
+</html>
