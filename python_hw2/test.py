@@ -6,7 +6,7 @@ from datetime import timedelta
 
 quandl.ApiConfig.api_key = "E1yyuR2R1ip6VeYjkfWn"
 
-mydata = quandl.get("WIKI/TSLA", rows=5)
+mydata = quandl.get("WIKI/MSFT", rows=5)
 price_list = []
 time_list = []
 now = datetime.date.today()

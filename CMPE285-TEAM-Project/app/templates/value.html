@@ -51,12 +51,12 @@
 
  <script>
   //var myarray = ;
-  var priceList0 = [187.78, 186.27, 185.73, 191.98, 189.51];
-  var priceList1 = [21.12, 21.85, 21.65, 21.67, 22.89];
-  var priceList2 = [1051.12, 1050.00, 1053.89, 1051.39, 1057.47];
+  var priceList0 = [{{list1[0]}}, {{list1[1]}}, {{list1[2]}}, {{list1[3]}}, {{list1[4]}}];
+  var priceList1 = [{{list2[0]}}, {{list2[1]}}, {{list2[2]}}, {{list2[3]}}, {{list2[4]}}];
+  var priceList2 = [{{list3[0]}}, {{list3[1]}}, {{list3[2]}}, {{list3[3]}}, {{list3[4]}}];
   var portFolioList = {{ portFolioList }};
-  var dateList = ['12-11-2017', '12-12-2017', '12-13-2017', '12-14-2017', '12-15-2017'];
-  var stockList = ['NFLX', 'TWTR', 'GOOGL'];
+  var dateList = ["{{timeList[0]}}", "{{timeList[1]}}", "{{timeList[2]}}", "{{timeList[3]}}", "{{timeList[4]}}"];
+
     $(function () {
     Highcharts.chart('container1', {
         title: {

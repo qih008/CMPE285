@@ -73,7 +73,27 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
-            return render_template('growth.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
+
+            mydata = quandl.get("WIKI/TSLA", rows=5)
+            price_list1 = []          
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list1.append(str(close_price))
+
+
+            mydata = quandl.get("WIKI/INTC", rows=5)
+            price_list2 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list2.append(str(close_price))
+
+            mydata = quandl.get("WIKI/AMZN", rows=5)
+            price_list3 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list3.append(str(close_price))
+
+            return render_template('growth.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list, timeList=time_list, list1=price_list1, list2=price_list2, list3=price_list3)
         elif index_form.amount3.data is not None:
             amount = index_form.amount3.data
             a1 = "The investment amount is: ${:,}".format(amount)
@@ -87,21 +107,41 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
-            return render_template('indexinvestment.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
+            return render_template('indexinvestment.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list, timeList=time_list)
         elif quality_form.amount4.data is not None:
             amount = quality_form.amount4.data
             a1 = "The investment amount is: ${:,}".format(amount)
             title1 = "Quality Investing Method"
             stock1 = "FB 50%"
             stock2 = "MSFT 20%"
-            stock3 = "SNE 30%"
+            stock3 = "DIS 30%"
             num1 = randint(amount-100, amount+100)
             num2 = randint(amount-100, amount+100)
             num3 = randint(amount-100, amount+100)
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
-            return render_template('quality.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
+
+            mydata = quandl.get("WIKI/FB", rows=5)
+            price_list1 = []          
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list1.append(str(close_price))
+
+
+            mydata = quandl.get("WIKI/MSFT", rows=5)
+            price_list2 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list2.append(str(close_price))
+
+            mydata = quandl.get("WIKI/DIS", rows=5)
+            price_list3 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list3.append(str(close_price))
+
+            return render_template('quality.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list, timeList=time_list, list1=price_list1, list2=price_list2, list3=price_list3)
         elif value_form.amount5.data is not None:
             amount = value_form.amount5.data
             a1 = "The investment amount is: ${:,}".format(amount)
@@ -115,7 +155,27 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
-            return render_template('value.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
+
+            mydata = quandl.get("WIKI/NFLX", rows=5)
+            price_list1 = []          
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list1.append(str(close_price))
+
+
+            mydata = quandl.get("WIKI/TWTR", rows=5)
+            price_list2 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list2.append(str(close_price))
+
+            mydata = quandl.get("WIKI/GOOGL", rows=5)
+            price_list3 = []
+            for i in range(5):
+              close_price = float(mydata['Close'][i])
+              price_list3.append(str(close_price))
+
+            return render_template('value.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list, timeList=time_list, list1=price_list1, list2=price_list2, list3=price_list3)
         
 
 
