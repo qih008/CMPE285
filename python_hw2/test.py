@@ -1,15 +1,24 @@
 import quandl
 import pandas as pd
+import datetime
+from datetime import timedelta
+
 
 quandl.ApiConfig.api_key = "E1yyuR2R1ip6VeYjkfWn"
 
-df = pd.read_csv('secwiki_tickers.csv')
+mydata = quandl.get("WIKI/TSLA", rows=5)
+price_list = []
+time_list = []
+now = datetime.date.today()
 
-symbol = input('Please enter A stock symbol: ')
+for i in range(5):
+  close_price = float(mydata['Close'][i])
+  price_list.append(close_price)
+  t = now - timedelta(days=(4-i))
+  time_list.append(t.strftime('%m-%d-%Y'))
 
-mydata = quandl.get("WIKI/"+symbol)
 
-print mydata
-# test = df[df.Ticker==symbol]
-# if not test.Name.values:
-#   print("List is empty")
+
+
+print price_list
+print time_list

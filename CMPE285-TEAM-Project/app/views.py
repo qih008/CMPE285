@@ -4,8 +4,11 @@ from .forms import ethicalForm, growthForm, indexForm, qualityForm, valueForm
 from random import *
 
 import quandl
-import datetime
 import pandas as pd
+import datetime
+from datetime import timedelta
+
+quandl.ApiConfig.api_key = "E1yyuR2R1ip6VeYjkfWn"
 
 # index view function suppressed for brevity
 @app.route('/', methods=['GET', 'POST'])
@@ -32,7 +35,26 @@ def index():
             num4 = randint(amount-100, amount+100)
             num5 = randint(amount-100, amount+100)
             profolio_list = [num1, num2, num3, num4, num4]
-            #print profolio_list
+
+            # mydata = quandl.get("WIKI/AAPL", rows=5)
+            # price_list1 = []
+            # time_list = []
+            # now = datetime.date.today()
+
+            # for i in range(5):
+            #   close_price = float(mydata['Close'][i])
+            #   price_list1.append(str(close_price))
+            #   t = now - timedelta(days=(4-i))
+            #   time_list.append(t.strftime('%m-%d-%Y'))
+
+
+            # mydata = quandl.get("WIKI/ADBE", rows=5)
+            # price_list2 = []
+            # for i in range(5):
+            #   close_price = float(mydata['Close'][i])
+            #   price_list2.append(str(close_price))
+
+            #print price_list1, price_list2
             return render_template('ethical.html', s1=a1, title=title1, s2=stock1, s3=stock2, s4=stock3, portFolioList=profolio_list)
         elif growth_form.amount2.data is not None:
             amount = growth_form.amount2.data
